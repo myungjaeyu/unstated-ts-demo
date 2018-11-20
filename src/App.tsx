@@ -1,13 +1,29 @@
 import * as React from 'react';
+import { Subscribe } from 'unstated';
+import AppContainer from './provider/container/AppContainer';
 
 class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
+    public render() {
+        return (
+        <Subscribe to={[AppContainer]}>
+        {
+            (app : AppContainer) => {
 
-      </div>
-    );
-  }
+                return (
+                <div className='App'>
+                    { app.state.tick }
+
+                    <button onClick={ _ => app.addTick() }>
+                        Add
+                    </button>
+                    
+                </div>
+                )
+            }
+        }
+        </Subscribe>
+        );
+    }
 }
 
 export default App;
