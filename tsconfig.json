@@ -27,5 +27,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
+  ],
+  "files": [
+    "./types/unstated.d.ts"
   ]
 }
